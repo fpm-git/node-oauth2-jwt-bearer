@@ -1,10 +1,13 @@
 {
-  "name": "express-oauth2-jwt-bearer",
+  "name": "@fpm-git/express-oauth2-jwt-bearer",
   "description": "Authentication middleware for Express.js that validates JWT bearer access tokens.",
   "version": "1.9.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "auth0/node-oauth2-jwt-bearer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fpm-git/node-oauth2-jwt-bearer.git"
+  },
   "scripts": {
     "test": "jest test --coverage",
     "lint": "eslint --fix --ext .ts ./src",
@@ -45,5 +48,8 @@
   },
   "engines": {
     "node": "^12.19.0 || ^14.15.0 || ^16.13.0 || ^18.12.0 || ^20.2.0 || ^22.1.0 || ^24.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
