@@ -17,7 +17,7 @@ import {
 
 export interface ConfirmationClaims {
   jkt: string;
-  'kc-jkt-type'?: string;
+  [unknownKey: string]: unknown;
 }
 interface DPoPJWTPayload extends JWTPayload {
   cnf?: ConfirmationClaims;
@@ -216,14 +216,6 @@ function assertDPoPRequest(
 
     if (!isJsonObject(cnf)) {
       throw new InvalidTokenError('Invalid "cnf" confirmation claim structure');
-    }
-
-    delete cnf['kc-jkt-type'];
-
-    if (Object.keys(cnf).length > 1) {
-      throw new InvalidTokenError(
-        'Multiple confirmation claims are not supported'
-      );
     }
 
     if (!('jkt' in cnf)) {
